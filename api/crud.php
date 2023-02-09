@@ -12,11 +12,11 @@ function get_pesquisarFuncionario($parametros) {
     return $dao->obtemFuncionario($busca);
 }
 
-function post_enviaFuncionario($parametros) {
+function post_salvarFuncionario($parametros) {
     $registro = $parametros;
     $dao = new CrudDAO();
 
-    return $dao->salvarFuncionario($registro); 
+    return $dao->salvaFuncionario($registro); 
 }
 
 function get_carregarCargos() {

@@ -28,7 +28,7 @@ class CrudDAO {
         }  
     }
 
-    public function salvarFuncionario($registro){
+    public function salvaFuncionario($registro){
         
         $sql = "INSERT INTO employees
                 (

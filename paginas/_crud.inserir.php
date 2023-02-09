@@ -82,7 +82,7 @@
     {{vm.registroFuncionario}}
     <div class="row container-botoes">
         <div class="col-xs-12 botoes">
-            <button empro-botao-salvar ng-click="vm.salvarRegistroFuncionario()"></button>
+            <button empro-botao-salvar ng-click="vm.salvarFuncionario()"></button>
             
             <button empro-botao-nova-busca ng-click="vm.novaPesquisa()" type="button"></button>
         </div>

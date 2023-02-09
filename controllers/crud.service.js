@@ -17,7 +17,7 @@ angular.module('app').service('crudService', function ($http) {
         return $http.get(url_controlador_cliente('api/crud/carregarDepartamentos'));
     };
     
-    this.enviaFuncionarioService = function(registroFuncionario) {
-        return $http.post(url_controlador_cliente('api/crud/enviaFuncionario'), registroFuncionario);
+    this.salvarService = function(registroFuncionario) {
+        return $http.post(url_controlador_cliente('api/crud/salvarFuncionario'), registroFuncionario);
     };
 });

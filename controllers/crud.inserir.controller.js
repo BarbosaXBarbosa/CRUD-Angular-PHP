@@ -1,4 +1,4 @@
-angular.module('app').controller('inserirCtrl', function ($location, crudService) {
+angular.module('app').controller('inserirCtrl', function ($scope, $location, crudService) {
     var vm = this;
 
     vm.carregarCargos = function() {
@@ -20,10 +20,13 @@ angular.module('app').controller('inserirCtrl', function ($location, crudService
         });
     };
 
-    vm.salvarRegistroFuncionario = function() {
+    vm.salvarFuncionario = function() {
+        if ($scope.form.$invalid) {
+            return;
+        }
         console.log(vm.registroFuncionario);
         crudService
-                .enviaFuncionarioService(vm.registroFuncionario)
+                .salvarService(vm.registroFuncionario)
                 .then(mostrarMensagemSucesso)
                 .then(vm.novaPesquisa());
     };
