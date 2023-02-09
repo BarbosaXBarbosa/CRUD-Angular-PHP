@@ -5,10 +5,11 @@ contexto_definir('chave_aplicacao', 'EMPRO_MENU');
 
 contexto_definir('sql.trace', true);
 
-function get_pesquisarFuncionario($parametros) {
+function get_pesquisarFuncionario($parametro) {
+    //return $parametro;
     $dao = new CrudDAO();
 
-    return $dao->obtemFuncionario($parametros["parametroBusca"]);
+    return $dao->obtemFuncionario($parametro["chavePesquisa"]);
 }
 
 function post_salvarFuncionario($parametros) {

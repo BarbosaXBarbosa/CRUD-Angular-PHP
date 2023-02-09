@@ -2,7 +2,8 @@ angular.module('app').service('crudService', function ($http) {
     
 
     this.pesquisarService = function (chavePesquisa) {
-        return $http.get(url_controlador_cliente('api/crud/pesquisarFuncionario'), {parametroBusca: chavePesquisa});
+        var config = {params:{chavePesquisa: chavePesquisa}};
+        return $http.get(url_controlador_cliente('api/crud/pesquisarFuncionario'), config);
     };
 
     this.listarCargosService = function(){

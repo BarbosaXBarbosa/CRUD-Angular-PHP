@@ -11,6 +11,7 @@ class CrudDAO {
 
 
     public function obtemFuncionario($busca) {
+
         if (is_numeric($busca)) {
             $sql = "SELECT e.employee_id, e.first_name, e.last_name
                     FROM employees e

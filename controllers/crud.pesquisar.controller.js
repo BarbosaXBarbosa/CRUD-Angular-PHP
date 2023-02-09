@@ -2,6 +2,7 @@ angular.module('app').controller('pesquisarCtrl', function ($location, crudServi
     var vm = this;
 
     vm.escondeTabela = false;
+    vm.chaveBusca = '';
     
     vm.configTabela = {
         columns: [
