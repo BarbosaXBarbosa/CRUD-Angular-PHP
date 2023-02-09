@@ -47,7 +47,8 @@ class CrudDAO {
 
     public function carregarCargos() {
         $sql = "SELECT j.job_id, j.job_title
-                FROM jobs j";
+                FROM jobs j
+                ORDER BY (job_title)";
         return query($sql);
     }   
 
@@ -62,7 +63,8 @@ class CrudDAO {
 
     public function carregarDepartamentos() {
         $sql = "SELECT department_id, department_name
-                FROM departments";
+                FROM departments
+                ORDER BY (department_name)";
         return query($sql);
     } 
 }

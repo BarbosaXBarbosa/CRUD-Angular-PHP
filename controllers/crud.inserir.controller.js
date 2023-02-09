@@ -21,6 +21,7 @@ angular.module('app').controller('inserirCtrl', function ($scope, $location, cru
     };
 
     vm.salvarFuncionario = function() {
+        //validações da informações.
         if ($scope.form.$invalid) {
             return;
         }
@@ -35,10 +36,14 @@ angular.module('app').controller('inserirCtrl', function ($scope, $location, cru
         empro.ok('Registro gravado com sucesso');
     }
 
-    vm.carregarCargos();
-    vm.carregarGerentes();
-    vm.carregarDepartamentos();
+    vm.carregarDados = function() {
+        vm.carregarCargos();
+        vm.carregarGerentes();
+        vm.carregarDepartamentos();
 
+    };
+
+    
     vm.novaPesquisa = function(){
         $location.path('/pesquisar')
     }
