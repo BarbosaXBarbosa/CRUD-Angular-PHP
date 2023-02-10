@@ -1,24 +1,29 @@
 angular.module('app').service('crudService', function ($http) {
     
 
-    this.pesquisarService = function (chavePesquisa) {
+    this.pesquisar = function (chavePesquisa) {
         var config = {params:{chavePesquisa: chavePesquisa}};
         return $http.get(url_controlador_cliente('api/crud/pesquisarFuncionario'), config);
     };
 
-    this.listarCargosService = function(){
-        return $http.get(url_controlador_cliente('api/crud/carregarCargos'));
+
+    this.carregarDados = function($paramentroCarga) {
+        switch ($paramentroCarga) {
+            case 'cargos':
+                return $http.get(url_controlador_cliente('api/crud/carregarCargos'));
+            case 'gerentes':
+                return $http.get(url_controlador_cliente('api/crud/carregarGerentes'));            
+            case 'departamentos':
+                return $http.get(url_controlador_cliente('api/crud/carregarDepartamentos'));
+        }
+    };          
+    
+    
+    this.salvar = function(registroFuncionario) {
+        return $http.post(url_controlador_cliente('api/crud/salvarFuncionario'), registroFuncionario);
     };
 
-    this.listarGerentesService = function(){
-        return $http.get(url_controlador_cliente('api/crud/carregarGerentes'));
-    };
-    
-    this.listarDepartamentosService = function(){
-        return $http.get(url_controlador_cliente('api/crud/carregarDepartamentos'));
-    };
-    
-    this.salvarService = function(registroFuncionario) {
-        return $http.post(url_controlador_cliente('api/crud/salvarFuncionario'), registroFuncionario);
+    this.editar = function(registroFuncionario) {
+        return $http.post(url_controlador_cliente('api/crud/editarFuncionario'), registroFuncionario);
     };
 });

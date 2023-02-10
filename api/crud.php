@@ -18,6 +18,12 @@ function post_salvarFuncionario($parametros) {
     return $dao->salvaFuncionario($parametros); 
 }
 
+function post_editarFuncionario($parametros) {
+    $dao = new CrudDAO();
+
+    return $dao->editaFuncionario($parametros);
+}
+
 function get_carregarCargos() {
     $dao = new CrudDAO();
 
@@ -35,6 +41,8 @@ function get_carregarDepartamentos() {
 
     return $dao->carregarDepartamentos(); 
 }
+
+
 
 
 

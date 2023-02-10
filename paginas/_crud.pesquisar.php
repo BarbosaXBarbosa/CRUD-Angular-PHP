@@ -16,6 +16,7 @@
         </div>
     </div>    
 </form>
+{{vm.funcSelecionado}}
 <div class="btn-group" id="toolbarTabela">
     <button type="button"
             class="btn btn-default"
@@ -23,11 +24,17 @@
             ng-click="vm.inserir()"
             ng-hide="!vm.escondeTabela">
     </button>
+    <button ng-disabled="!vm.funcSelecionado"
+            empro-botao-editar
+            ng-hide="!vm.escondeTabela"
+            ng-click="vm.editar()">
+    </button>
 </div>
 
 <div class="row col-md-12">
-    <empro-tabela-selecionavel config="vm.configTabela"
-                               ng-class="{ 'bs-table-somente-toolbar': !vm.escondeTabela }">
+    <empro-tabela-selecionavel  ng-model="vm.funcSelecionado" 
+                                config="vm.configTabela"
+                                ng-class="{ 'bs-table-somente-toolbar': !vm.escondeTabela }">
     </empro-tabela-selecionavel>
 </div>
 

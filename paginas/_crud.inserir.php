@@ -1,5 +1,6 @@
 <form name="form" novalidate ng-init="vm.carregarDados()">
-       <h2>Cadastre um novo Empregado</h2>
+       <h2 ng-hide="vm.rotaEdicao()">Cadastre um novo Funcionário</h2>
+       <h2 ng-show="vm.rotaEdicao()">Edita Funcionário</h2>
        <div class="row">
               <empro-grupo-campo class="col-md-6"
                                    label="Nome">
@@ -81,7 +82,7 @@
                      </select>
               </empro-grupo-campo>
        </div>
-
+{{vm.registroFuncionario}}
        <div class="row">
               <div class="col-xs-12 ">
               <button empro-botao-salvar ng-click="vm.salvarFuncionario()" ng-disabled="form.$invalid"></button>

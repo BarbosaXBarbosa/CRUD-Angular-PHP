@@ -12,6 +12,16 @@ angular.module('app').config(function ($routeProvider) {
             controllerAs: 'vm',
             templateUrl: url_controlador_cliente('_crud.inserir')
         })
+        .when('/editar/:id', {
+            controller: 'inserirCtrl',
+            controllerAs: 'vm',
+            templateUrl: url_controlador_cliente('_crud.inserir'),
+            resolve: {
+                registro: function ($route, crudService) {
+                    return crudService.pesquisar($route.current.params.id);
+                }
+            }
+        })
         .otherwise({
             redirectTo: '/pesquisar'
         });

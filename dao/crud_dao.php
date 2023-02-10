@@ -13,8 +13,8 @@ class CrudDAO {
     public function obtemFuncionario($busca) {
 
         if (is_numeric($busca)) {
-            $sql = "SELECT e.employee_id, e.first_name, e.last_name
-                    FROM employees e
+            $sql = "SELECT * 
+                    FROM employees 
                     WHERE employee_id = ?";
             return query($sql, [$busca]);
         }
@@ -43,6 +43,25 @@ class CrudDAO {
                     :email, :phone_number, :hire_date, :job_id, :salary, 
                     :commission_pct, :manager_id, :department_id
                 )";
+        return query($sql, $registro);
+    }
+
+    public function editaFuncionario($registro){
+        
+        $sql = "UPDATE employees
+                SET
+                    first_name = :first_name, 
+                    last_name = :last_name, 
+                    email = :email, 
+                    phone_number = :phone_number, 
+                    hire_date = :hire_date, 
+                    job_id = :job_id, 
+                    salary = :salary, 
+                    commission_pct = :commission_pct, 
+                    manager_id = :manager_id, 
+                    department_id = :department_id
+
+                WHERE employee_id = :employee_id";
         return query($sql, $registro);
     }
 

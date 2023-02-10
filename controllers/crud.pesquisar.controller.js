@@ -3,7 +3,7 @@ angular.module('app').controller('pesquisarCtrl', function ($location, crudServi
 
     vm.escondeTabela = false;
     vm.chaveBusca = '';
-    
+    vm.funcSelecionado = null;
     vm.configTabela = {
         columns: [
             {
@@ -42,7 +42,7 @@ angular.module('app').controller('pesquisarCtrl', function ($location, crudServi
     };
 
     vm.pesquisar = function () {        
-        crudService.pesquisarService(vm.chaveBusca).then(function (resp) {
+        crudService.pesquisar(vm.chaveBusca).then(function (resp) {
             console.log(resp);
             vm.escondeTabela = true;
             vm.configTabela.data = {}; // Limpando o escopo caso já tenha pesquisado alguma vez.
@@ -51,6 +51,11 @@ angular.module('app').controller('pesquisarCtrl', function ($location, crudServi
     };
 
     vm.inserir = function(){
-        $location.path('/inserir')
+        $location.path('/inserir');
+    };
+
+    vm.editar = function(){
+        id = vm.funcSelecionado.employee_id;
+        $location.path('/editar/'+ id);
     };
 });
