@@ -1,51 +1,18 @@
-angular.module('app').controller('pesquisarCtrl', function ($location, crudService) {
+angular.module('app').controller('pesquisarCtrl', function ($location, crudService, configTabela) {
     var vm = this;
 
     vm.escondeTabela = false;
     vm.chaveBusca = '';
     vm.funcSelecionado = null;
-    vm.configTabela = {
-        columns: [
-            {
-                title: 'ID',
-                field: 'employee_id',
-                sortable: true,
-                formatter: function (value, row, index) {
-                    if (value > '150') {
-                        return '<span class="badge badge-danger" style="background-color: red">' + value + '</span>';
-                    } else {
-                        return value;
-                    }
-                }
-            },
-            {
-                title: 'Nome',
-                field: 'first_name',
-                sortable: true
-            },
-            {
-                title: 'Sobrenome',
-                field: 'last_name',
-                sortable: true
-            },
-        ],
-        clickToSelect: true,
-        showToggle: false,
-        toolbar: '#toolbarTabela',
-        pagination: true,
-        pageSize: 10,
-        pageList: [5, 10, 25, 50, 100, 1000],
-        
-        formatNoMatches: function () {
-            return "Nenhum resultado encontrado";
-        },
-    };
+    vm.configTabela = configTabela.configuraTabela();
+
 
     vm.pesquisar = function () {        
         crudService.pesquisar(vm.chaveBusca).then(function (resp) {
             console.log(resp);
             vm.escondeTabela = true;
             vm.configTabela.data = {}; // Limpando o escopo caso já tenha pesquisado alguma vez.
+            vm.funcSelecionado = null;
             vm.configTabela.data = resp.data;
         });
     };
@@ -58,4 +25,12 @@ angular.module('app').controller('pesquisarCtrl', function ($location, crudServi
         id = vm.funcSelecionado.employee_id;
         $location.path('/editar/'+ id);
     };
+
+    vm.excluir = function() {
+        id = vm.funcSelecionado.employee_id;
+        crudService
+            .excluir(id)
+            .then(crudService.mostrarMensagemSucesso())
+            .then(vm.pesquisar(vm.chaveBusca));
+    }
 });

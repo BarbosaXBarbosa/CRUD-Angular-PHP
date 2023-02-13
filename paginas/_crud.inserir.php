@@ -82,7 +82,7 @@
                      </select>
               </empro-grupo-campo>
        </div>
-{{vm.registroFuncionario}}
+       {{vm.registroFuncionario}}
        <div class="row">
               <div class="col-xs-12 ">
               <button empro-botao-salvar ng-click="vm.salvarFuncionario()" ng-disabled="form.$invalid"></button>

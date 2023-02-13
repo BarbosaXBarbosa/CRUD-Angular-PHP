@@ -16,7 +16,6 @@
         </div>
     </div>    
 </form>
-{{vm.funcSelecionado}}
 <div class="btn-group" id="toolbarTabela">
     <button type="button"
             class="btn btn-default"
@@ -28,6 +27,10 @@
             empro-botao-editar
             ng-hide="!vm.escondeTabela"
             ng-click="vm.editar()">
+    </button>
+    <button ng-show="vm.funcSelecionado"
+            empro-botao-excluir
+            excluir="vm.excluir()">
     </button>
 </div>
 

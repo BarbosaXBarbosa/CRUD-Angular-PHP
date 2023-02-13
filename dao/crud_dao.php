@@ -65,6 +65,13 @@ class CrudDAO {
         return query($sql, $registro);
     }
 
+    public function excluiFuncionario($idFuncionario) {
+        $sql = "DELETE FROM employees
+                WHERE employee_id = ?";
+
+        return query($sql, [$idFuncionario]);
+    }
+
     public function carregarCargos() {
         $sql = "SELECT j.job_id, j.job_title
                 FROM jobs j

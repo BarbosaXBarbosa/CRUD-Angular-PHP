@@ -24,6 +24,13 @@ function post_editarFuncionario($parametros) {
     return $dao->editaFuncionario($parametros);
 }
 
+function delete_excluirFuncionario($parametro) {
+    $dao = new CrudDAO();
+
+    
+    return $dao->excluiFuncionario($parametro["id"]);
+}
+
 function get_carregarCargos() {
     $dao = new CrudDAO();
 

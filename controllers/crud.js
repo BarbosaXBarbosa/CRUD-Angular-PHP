@@ -12,7 +12,7 @@ angular.module('app').config(function ($routeProvider) {
             controllerAs: 'vm',
             templateUrl: url_controlador_cliente('_crud.inserir')
         })
-        .when('/editar/:id', {
+        .when('/editar/:employee_id', {
             controller: 'inserirCtrl',
             controllerAs: 'vm',
             templateUrl: url_controlador_cliente('_crud.inserir'),
