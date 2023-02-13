@@ -28,7 +28,8 @@
             ng-hide="!vm.escondeTabela"
             ng-click="vm.editar()">
     </button>
-    <button ng-show="vm.funcSelecionado"
+    <button ng-disabled="!vm.funcSelecionado"
+            ng-hide="!vm.escondeTabela"
             empro-botao-excluir
             excluir="vm.excluir()">
     </button>

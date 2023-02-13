@@ -24,7 +24,7 @@ function post_editarFuncionario($parametros) {
     return $dao->editaFuncionario($parametros);
 }
 
-function delete_excluirFuncionario($parametro) {
+function post_excluirFuncionario($parametro) {
     $dao = new CrudDAO();
 
     

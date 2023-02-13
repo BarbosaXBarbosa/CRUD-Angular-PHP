@@ -26,7 +26,7 @@ angular.module('app').service('crudService', function ($http) {
 
     this.excluir = function(idFuncionario) {
         var config = {params:{id: idFuncionario}}
-        return $http.delete(url_controlador_cliente('api/crud/excluirFuncionario'), config);
+        return $http.post(url_controlador_cliente('api/crud/excluirFuncionario'), config);
     };
 
     this.mostrarMensagemSucesso = function() {

@@ -32,5 +32,5 @@ angular.module('app').controller('pesquisarCtrl', function ($location, crudServi
             .excluir(id)
             .then(crudService.mostrarMensagemSucesso())
             .then(vm.pesquisar(vm.chaveBusca));
-    }
+    };
 });
